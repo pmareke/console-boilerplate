@@ -1,0 +1,28 @@
+[project]
+name = "console-boilerplate"
+version = "0.1.0"
+description = "This repository is a console boilerplate to use as a fast starter point"
+authors = [{ name = "Pedro López Mareque", email = "pedro.lopez.mareque@gmail.com" }]
+requires-python = "~=3.12"
+readme = "README.md"
+license = "MIT"
+dependencies = [
+    "doublex-expects>=0.7.1",
+    "pydantic-settings>=2.5.2,<3",
+]
+
+[dependency-groups]
+test = [
+    "pytest>=8.3.3,<9",
+    "pytest-xdist>=3.6.1,<4",
+    "pytest-watch>=4.2.0,<5",
+    "expects>=0.9.0,<0.10",
+    "doublex>=1.9.6.1,<2",
+    "doublex-expects>=0.7.1",
+    "coverage>=7.6.1,<8",
+    "mypy>=1.11.2,<2",
+    "ruff>=0.6.7,<0.7",
+]
+
+[tool.uv]
+default-groups = ["test"]
