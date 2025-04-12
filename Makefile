@@ -11,8 +11,12 @@ local-setup: ## Sets up the local environment (e.g. install git hooks)
 	make install
 
 .PHONY: build
-build: ## Install the app packages
+build: ## Build the app 
 	docker build -t console-boilerplate .
+
+.PHONY: up
+up: build ## Run the app
+	docker run --rm -it console-boilerplate
 
 .PHONY: install
 install: ## Install the app packages

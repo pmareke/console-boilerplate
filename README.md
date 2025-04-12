@@ -29,17 +29,17 @@ The project uses [Makefiles](https://www.gnu.org/software/make/manual/html_node/
 
 - `add-package package=XXX`: Installs the package XXX in the app, ex: `make install package=requests`.
 - `build` : Builds the app using the Dockerfile.
+- `up` : Runs the app using the Dockerfile.
 - `check-typing`: Runs a static analyzer over the code in order to find issues.
 - `check-format`: Checks the code format.
 - `check-lint`: Checks the code style.
 - `coverage` : Generates the coverage report.
-- `dev`: Runs the app in development mode.
 - `format`: Formats the code.
 - `lint`: Lints the code.
 - `help` : Shows this help.
 - `install`: Installs the app packages.
 - `local-setup`: Sets up the local environment (e.g. install git hooks).
-- `run`: Runs the app in production mode.
+- `run`: Runs the app without Docker.
 - `test`: Run all the tests.
 - `update`: Updates the app packages.
 - `watch`: Run all the tests in watch mode.
