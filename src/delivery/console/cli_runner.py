@@ -7,16 +7,16 @@ from src.use_cases.say_hello_command import SayHelloCommand, SayHelloCommandHand
 
 
 class CliRunner:
-    def __init__(self, _in: Callable, _out: Callable, logger: Logger) -> None:
-        self._in = _in
-        self._out = _out
+    def __init__(self, _input: Callable, _output: Callable, logger: Logger) -> None:
+        self._input = _input
+        self._output = _output
         self.logger = logger
 
     def run(self) -> None:
         self.logger.info("Starting CLI")
         while True:
             try:
-                _input = self._in()
+                _input = self._input()
                 if _input == "exit":
                     self.logger.info("Exiting CLI")
                     break
@@ -24,7 +24,7 @@ class CliRunner:
                 command_handler = self._parse_handler(_input)
                 response = command_handler.execute(command)
                 result = response.message()
-                self._out(result)
+                self._output(result)
             except KeyboardInterrupt:
                 self.logger.info("Exiting CLI")
                 break

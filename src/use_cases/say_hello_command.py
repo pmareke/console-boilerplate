@@ -28,7 +28,7 @@ class SayHelloCommandHandler(CommandHandler):
         self._hello_client = hello_client
         self._logger = _logger
 
-    def execute(self, command: SayHelloCommand) -> SayHelloCommandResponse:
+    def execute(self, command: SayHelloCommand) -> SayHelloCommandResponse:  # type: ignore
         command_id = command.command_id
         self._logger.info(f"Command {command_id}: SayHelloCommandHandler#execute start")
 
@@ -39,8 +39,8 @@ class SayHelloCommandHandler(CommandHandler):
             )
             return SayHelloCommandResponse(name)
         except SayHelloClientException as ex:
-            error_message = f"Command {command_id}: {ex}"
             self._logger.info(
                 f"Command {command_id}: SayHelloCommandHandler#execute failed: '{str(ex)}'"
             )
+            error_message = f"Command {command_id}: {ex}"
             raise SayHelloCommandHandlerException(error_message) from ex
