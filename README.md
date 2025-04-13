@@ -36,6 +36,7 @@ The project uses [Makefiles](https://www.gnu.org/software/make/manual/html_node/
 - `check-typing`: Runs a static analyzer over the code in order to find issues.
 - `check-format`: Checks the code format.
 - `check-lint`: Checks the code style.
+- `checks`: Run all the checks.
 - `coverage` : Generates the coverage report.
 - `format`: Formats the code.
 - `lint`: Lints the code.
