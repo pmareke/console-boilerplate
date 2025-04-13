@@ -8,14 +8,16 @@ from src.delivery.console.cli_runner import CliRunner
 
 class TestCliRunner:
     def test_cli_runner(self) -> None:
-        commands = ["command1", "command2", "exit"]
         with Stub() as _input:
+            commands = ["command1", "command2", "exit"]
             _input.input().delegates(commands)
         with Mock() as _output:
             _output.print("Hello, command1!")
             _output.print("Hello, command2!")
+        input = _input.input
+        print = _output.print
         logger = Mimic(Spy, Logger)
-        cli = CliRunner(_input.input, _output.print, logger)  # type: ignore
+        cli = CliRunner(input, print, logger)  # type: ignore
 
         cli.run()
 
