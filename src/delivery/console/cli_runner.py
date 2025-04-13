@@ -6,7 +6,7 @@ from src.infrastructure.hello.hello_client import DummyHelloClient
 from src.use_cases.say_hello_command import SayHelloCommand, SayHelloCommandHandler
 
 
-class Cli:
+class CliRunner:
     def __init__(self, _in: Callable, _out: Callable, logger: Logger) -> None:
         self._in = _in
         self._out = _out

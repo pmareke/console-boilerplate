@@ -21,6 +21,7 @@ up: build ## Run the app
 .PHONY: install
 install: ## Install the app packages
 	rm -rf uv.lock
+	uv python pip 3.12.8
 	uv sync
 
 .PHONY: update

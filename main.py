@@ -1,5 +1,5 @@
 from src.common.logger import logger
-from src.delivery.console.cli import Cli
+from src.delivery.console.cli_runner import CliRunner
 
-cli = Cli(input, print, logger)
+cli = CliRunner(input, print, logger)
 cli.run()
