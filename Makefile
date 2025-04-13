@@ -69,7 +69,8 @@ test-acceptance: ## Run acceptance tests
 	uv run pytest -n auto tests/acceptance -ra
 
 .PHONY: test
-test: test-unit test-integration test-acceptance ## Run all the tests
+test:	## Run all the tests
+	uv run pytest -n auto tests -ra
 
 .PHONY: watch
 watch: ## Run all the tests in watch mode
