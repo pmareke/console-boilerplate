@@ -34,13 +34,9 @@ class SayHelloCommandHandler(CommandHandler):
 
         try:
             name = self._hello_client.get(command.name)
-            self._logger.info(
-                f"Command {command_id}: SayHelloCommandHandler#execute done"
-            )
+            self._logger.info(f"Command {command_id}: SayHelloCommandHandler#execute done")
             return SayHelloCommandResponse(name)
         except SayHelloClientException as ex:
-            self._logger.info(
-                f"Command {command_id}: SayHelloCommandHandler#execute failed: '{str(ex)}'"
-            )
+            self._logger.info(f"Command {command_id}: SayHelloCommandHandler#execute failed: '{str(ex)}'")
             error_message = f"Command {command_id}: {ex}"
             raise SayHelloCommandHandlerException(error_message) from ex
