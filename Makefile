@@ -64,23 +64,23 @@ checks: check-lint check-format check-typing  ## Run all checks
 
 .PHONY: test-unit
 test-unit: pre-requirements ## Run unit tests
-	uv run pytest -n auto tests/unit -ra
+	uv run pytest -n auto tests/unit -ra -x --durations=5
 
 .PHONY: test-integration
 test-integration: pre-requirements ## Run integration tests
-	uv run pytest -n auto tests/integration -ra
+	uv run pytest -n auto tests/integration -ra -x --durations=5
 
 .PHONY: test-acceptance
 test-acceptance: pre-requirements ## Run acceptance tests
-	uv run pytest -n auto tests/acceptance -ra
+	uv run pytest -n auto tests/acceptance -ra -x --durations=5
 
 .PHONY: test
 test: pre-requirements	## Run all the tests
-	uv run pytest -n auto tests -ra
+	uv run pytest -n auto tests -ra -x --durations=5
 
 .PHONY: watch
 watch: pre-requirements ## Run all the tests in watch mode
-	uv run ptw --runner "pytest -n auto tests -ra"
+	uv run ptw --runner "pytest -n auto tests -ra -x --durations=5"
 
 .PHONY: coverage
 coverage: pre-requirements ## Generates the coverage report
