@@ -1,17 +1,20 @@
 FROM python:3.12.8-alpine
 
-RUN pip install --no-cache-dir uv
+ENV PATH="/code/.venv/bin:$PATH"
 
-RUN uv python pin 3.12.8
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 WORKDIR /code
 
-COPY pyproject.toml /code
+RUN uv python pin 3.12.8
 
-RUN uv sync --no-group test
+RUN --mount=type=cache,target=/root/.cache/uv \
+    --mount=type=bind,source=uv.lock,target=uv.lock \
+    --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
+    uv sync --locked --no-install-project --no-group test
 
 COPY main.py /code/main.py
 
 COPY src /code/src
 
-CMD ["uv", "run", "python", "main.py"]
+CMD ["python", "main.py"]
