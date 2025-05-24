@@ -29,7 +29,7 @@ dependencies = [
 ]
 
 [package.dev-dependencies]
-test = [
+dev = [
     { name = "coverage" },
     { name = "doublex" },
     { name = "doublex-expects" },
@@ -44,7 +44,7 @@ test = [
 requires-dist = [{ name = "pydantic-settings", specifier = ">=2.5.2,<3" }]
 
 [package.metadata.requires-dev]
-test = [
+dev = [
     { name = "coverage", specifier = ">=7.6.1,<8" },
     { name = "doublex", specifier = ">=1.9.6.1,<2" },
     { name = "doublex-expects", specifier = ">=0.7.1" },

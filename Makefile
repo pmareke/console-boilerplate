@@ -35,6 +35,10 @@ update: pre-requirements ## Updates the app packages
 add-package: pre-requirements ## Installs a new package in the app. ex: make install package=XXX
 	uv add $(package)
 
+.PHONY: add-dev-package
+add-dev-package: pre-requirements ## Installs a new package in the app. ex: make install package=XXX
+	uv add --dev $(package)
+
 .PHONY: run
 run: pre-requirements ## Runs the app in production mode
 	python main.py
