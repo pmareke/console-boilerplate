@@ -32,11 +32,11 @@ update: pre-requirements ## Updates the app packages
 	uv lock --upgrade
 
 .PHONY: add-package
-add-package: pre-requirements ## Installs a new package in the app. ex: make install package=XXX
+add-package: pre-requirements ## Installs a new package in the app. ex: make add-package package=XXX
 	uv add $(package)
 
 .PHONY: add-dev-package
-add-dev-package: pre-requirements ## Installs a new package in the app. ex: make install package=XXX
+add-dev-package: pre-requirements ## Installs a new package in the app. ex: make add-dev-package package=XXX
 	uv add --dev $(package)
 
 .PHONY: run
